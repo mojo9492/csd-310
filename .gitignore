@@ -8,7 +8,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-./docker-compose.yaml
+docker-compose.yaml
 .Python
 build/
 data/
