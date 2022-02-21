@@ -1,0 +1,30 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>790</x><y>409</y><w>340</w><h>100</h></coordinates><panel_attributes>BOOK
+--
+book_id: INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+book_name: VARCHAR 200 NOT NULL
+details: VARCHAR 500 NOT NULL
+author: VARCHAR 200 NOT NULL
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>239</y><w>390</w><h>70</h></coordinates><panel_attributes>WISHLIST
+--
+wishlst_id: INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+user_id: INT NOT NULL AUTO_INCREMENT FOREIGN KEY (USER)
+book_id: INT NOT NULL AUTO_INCREMENT FOREIGN KEY (BOOK)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>239</y><w>340</w><h>70</h></coordinates><panel_attributes>USER
+--
+user_id: INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+first_name: VARCHAR 75 NOT NULL
+last_name: VARCHAR 75 NOT NULL
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>409</y><w>340</w><h>70</h></coordinates><panel_attributes>STORE
+--
+store_id: INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+locale: VARCHAR 500 NOT NULL
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>400</y><w>390</w><h>50</h></coordinates><panel_attributes>lt=-
+m1= *.*
+m2= 1.*
+many can have many </panel_attributes><additional_attributes>10;20;370;20</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>230</y><w>190</w><h>50</h></coordinates><panel_attributes>lt=-
+m1= *.*
+m2= 1.1
+many can have one</panel_attributes><additional_attributes>10;20;170;20</additional_attributes></element><element><id>Relation</id><coordinates><x>970</x><y>230</y><w>180</w><h>50</h></coordinates><panel_attributes>lt=-
+m1= *.*
+m2=1.*
+many can have many</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1120</x><y>240</y><w>30</w><h>190</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element></diagram>

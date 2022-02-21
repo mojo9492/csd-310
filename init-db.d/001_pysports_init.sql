@@ -4,22 +4,23 @@
     Date: 15 July 2020
     Description: pysports database initialization script.
 */
+CREATE DATABASE pysports;
 
 -- drop test user if exists 
 DROP USER IF EXISTS 'pysports_user'@'localhost';
 
-
 -- create pysports_user and grant them all privileges to the pysports database 
 CREATE USER 'pysports_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MySQL8IsGreat!';
+CREATE USER 'pysports_user'@'%' IDENTIFIED WITH mysql_native_password BY 'MySQL8IsGreat!';
 
 -- grant all privileges to the pysports database to user pysports_user on localhost 
-GRANT ALL PRIVILEGES ON pysports.* TO'pysports_user'@'localhost';
-GRANT ALL PRIVILEGES ON pysports.* TO'pysports_user'@'%';
+GRANT ALL PRIVILEGES ON pysports.* TO 'pysports_user'@'localhost';
+GRANT ALL PRIVILEGES ON pysports.* TO 'pysports_user'@'%';
 
 -- drop tables if they are present
+USE pysports;
 DROP TABLE IF EXISTS player;
 DROP TABLE IF EXISTS team;
-
 
 -- create the team table 
 CREATE TABLE team (
@@ -66,5 +67,5 @@ INSERT INTO player(first_name, last_name, team_id)
 INSERT INTO player(first_name, last_name, team_id)
     VALUES('Angmar', 'Witch-king', (SELECT team_id FROM team WHERE team_name = 'Team Sauron'));
 
-INSERT INTO player(first_name, last_name, team_id)
+INSERT INTO player(first_name, last_name, team_id) 
     VALUES('Azog', 'The Defiler', (SELECT team_id FROM team WHERE team_name = 'Team Sauron'));
