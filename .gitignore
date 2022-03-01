@@ -8,9 +8,6 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-docker-compose.yaml
-pysports_docker.yaml
-whatabook_docker.yaml
 .Python
 build/
 data/

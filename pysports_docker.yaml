@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+    db:
+        image: mysql
+        platform: linux/x86_64
+        container_name: csd-db
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_DATABASE: pysports
+            MYSQL_ROOT_PASSWORD: docker
+            MYSQL_USER: pysports_user
+            MYSQL_PASSWORD: MySQL8IsGreat!
+        volumes:
+             - ./data:/var/lib/mysql/
+             - ./init-db.d/:/docker-entrypoint-initdb.d/
+        ports:
+            - 3306:3306
