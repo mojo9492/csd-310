@@ -24,9 +24,9 @@ please refer to ./init-db.d for init.sql files used to administrate this databas
 - [x] Create a method for “show_locations(_cursor)”
 - [x] Create a method for “validate_user()”
 - [x] Create a method for “show_account_menu()”
-- [ ] Create a method for “show_wishlist(_cursor, _user_id)”
+- [x] Create a method for “show_wishlist(_cursor, _user_id)”
 - [ ] Create a method for “show_books_to_add(_cursor, _user_id)”
 - [ ] Create a method for “add_book_to_wishlist(_cursor, _user_id, _book_id)”
-- [ ] Create a method to display the account menu
-- [ ] Use variables to capture the user entry for user_id
+- [x] Create a method to display the account menu
+- [x] Use variables to capture the user entry for user_id
 - [ ] User variables to capture the user entry for book_id

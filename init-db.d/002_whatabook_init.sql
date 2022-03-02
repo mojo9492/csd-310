@@ -74,6 +74,10 @@ INSERT INTO book (book_name, author, details) VALUES
     ('Lightning Strike', 'William Kent Kreuger', 'A book about fathers and sons, long-simmering conflicts in a small Minnesota town, and the events that echo through youth and shape our lives forever.'),
     ('Three Girls from Bronzeville', 'Dawn Turner', 'A memoir about three Black girls from the storied Bronzeville section of Chicago that offers a penetrating exploration of race, opportunity, friendship, sisterhood, and the powerful forces at work that allow some to flourish…and others to falter.');
 
+-- insert a wishlist
+INSERT INTO wishlist (user_id, book_id) VALUES (1, 1);
+-- insert locations
+INSERT INTO store (locale) VALUES ('123 Read St Saratoga, CA'), ('456 Catalpa Ave Woo Dale, IL');
 
 DELIMITER //
 CREATE PROCEDURE grab_book_id(IN book_name VARCHAR(200), OUT book_id INT)
