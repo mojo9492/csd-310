@@ -122,6 +122,6 @@ BEGIN
     INSERT INTO wishlist(user_id, book_id)
     VALUES(user_id, book_id);
 END //
-DELIMITER;
+DELIMITER ;
 
 USE whatabook;

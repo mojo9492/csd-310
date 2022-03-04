@@ -17,7 +17,7 @@ please refer to ./init-db.d for init.sql files used to administrate this databas
 3. use the menu to navigate through the program 
     - you can head over to a user's wishlist from the main menu by selecting (3) and entering their last name when prompted
       - you can view, add, and remove books from their wishlist
-    - you can create a new user if you wish, too
+      
 ### objectives
 - [x] Create a method to for “show_menu()”
 - [x] Create a method for “show_books(_cursor)”
@@ -25,8 +25,8 @@ please refer to ./init-db.d for init.sql files used to administrate this databas
 - [x] Create a method for “validate_user()”
 - [x] Create a method for “show_account_menu()”
 - [x] Create a method for “show_wishlist(_cursor, _user_id)”
-- [ ] Create a method for “show_books_to_add(_cursor, _user_id)”
-- [ ] Create a method for “add_book_to_wishlist(_cursor, _user_id, _book_id)”
+- [x] Create a method for “show_books_to_add(_cursor, _user_id)”
+- [x] Create a method for “add_book_to_wishlist(_cursor, _user_id, _book_id)”
 - [x] Create a method to display the account menu
 - [x] Use variables to capture the user entry for user_id
-- [ ] User variables to capture the user entry for book_id
+- [x] User variables to capture the user entry for book_id
