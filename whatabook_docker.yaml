@@ -8,10 +8,11 @@ services:
         command: --default-authentication-plugin=mysql_native_password
         restart: always
         environment:
-            # this will create a databse and user, so make .sql files do not have conflicting create database/user commands
-            MYSQL_DATABASE: whatabook
+            # * this will create a databse and user, so make .sql files do not have conflicting create database/user commands
+            # * do not create database/user here if done so in .sql files
+            # MYSQL_DATABASE: whatabook
             MYSQL_ROOT_PASSWORD: docker
-            # if using a .sql file for init, make sure to grant all permissions to the remote user as well as localhost
+            # * if using a .sql file for init, make sure to grant all permissions to the remote user as well as localhost
             MYSQL_USER: whatabook_user
             MYSQL_PASSWORD: MySQL8IsGreat!
         volumes:

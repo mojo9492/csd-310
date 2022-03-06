@@ -75,7 +75,10 @@ class WhatabookRepository:
         if not selection or not validation_result:
             selection = self.show_account_menu()
 
-        if selection == '4' or selection.upper() == 'Q':
+        if selection.upper() == 'Q':
+            exit()
+
+        if selection == '4':
             return self.main()
         
         dict = {
@@ -138,7 +141,9 @@ class WhatabookRepository:
         cursor = self._db.cursor()
         query = f'INSERT INTO wishlist (book_id, user_id) VALUES ({book_id}, {self._user_id})'
         cursor.execute(query)
-        print('\n\ndone✅')
+        cursor.close()
+        self._db.commit()
+        print('\n\ndone ✅')
         sleep(.5)
     # removes from current selected user wishlist
     def remove_from_wishlist(self, book_id):
@@ -147,6 +152,8 @@ class WhatabookRepository:
         cursor = self._db.cursor()
         query = f'DELETE FROM wishlist WHERE user_id = {self._user_id} AND book_id = {book_id}'
         cursor.execute(query)
+        cursor.close()
+        self._db.commit()
         print('\n\ndone✅')
         sleep(.5)
     # shows books that are not in the current user wishlist
@@ -155,7 +162,8 @@ class WhatabookRepository:
         query = f'SELECT book_id, book_name, author, details FROM book WHERE book_id NOT IN (SELECT book_id FROM wishlist WHERE user_id = {self._user_id})'
         cursor.execute(query)
         result = cursor.fetchall()
-        
+        cursor.close()
+
         if result:
             self.print_books(result)
 
@@ -174,6 +182,7 @@ class WhatabookRepository:
         query = f'SELECT book_id, book_name, author, details FROM wishlist WHERE user_id = {self._user_id}'
         cursor.execute(query)
         result = cursor.fetchall()
+        cursor.close()
 
         if result:
             self.print_books(result)
@@ -196,7 +205,7 @@ class WhatabookRepository:
                 f'\nAuthor: {book[2]}'
                 f'\nDetails: {book[3]}'
                 '\n' + '-' * 50 + '\n')
-            sleep(.5)
+            sleep(.2)
     # runs the program
     def main(self):
         try:
@@ -237,7 +246,6 @@ class WhatabookRepository:
         finally:
             self._db.close()
             exit()
-# instanitate the class
-repo = WhatabookRepository()
 # run the program
+repo = WhatabookRepository()
 repo.main()

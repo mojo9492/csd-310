@@ -1,3 +1,4 @@
+CREATE database whatabook;
 
 DROP USER IF EXISTS 'whatabook_user'@'localhost';
 
