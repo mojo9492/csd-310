@@ -124,16 +124,12 @@ class WhatabookRepository:
         sleep(.5)
         cursor = self._db.cursor()
 
-        query =  f"SELECT book_name, author, details FROM wishlist A INNER JOIN book B ON A.book_id = B.book_id INNER JOIN user C ON A.user_id = {self._user_id} WHERE C.user_id = {self._user_id}"
+        query =  f"SELECT A.book_id, book_name, author, details FROM wishlist A INNER JOIN book B ON A.book_id = B.book_id INNER JOIN user C ON A.user_id = {self._user_id} WHERE C.user_id = {self._user_id}"
         cursor.execute(query)
         data = cursor.fetchall()
         if data:
-            for wishlist in data:
-                print('-' * 50 +
-                    f'\nTitle: {wishlist[0]}'
-                    f'\Author: {wishlist[1]}'
-                    f'\nDetails: {wishlist[2]}'
-                    '\n' + '-' * 50)
+            self.print_books(data)
+
     # adds to current selected user wishlist
     def add_to_wishlist(self, book_id):
         sleep(.5)
@@ -178,15 +174,7 @@ class WhatabookRepository:
             self.show_books_to_add()
     # shows books to remove from current user wishlist
     def show_books_to_remove(self):
-        cursor = self._db.cursor()
-        query = f'SELECT book_id, book_name, author, details FROM wishlist WHERE user_id = {self._user_id}'
-        cursor.execute(query)
-        result = cursor.fetchall()
-        cursor.close()
-
-        if result:
-            self.print_books(result)
-
+        self.show_wishlist()
         sleep(1)
         book_to_remove = input('which book would you like to remove? (use book id number)')
         # if book_to_remove is a number
